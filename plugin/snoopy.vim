@@ -41,6 +41,11 @@ let g:snoopy_funcnames = get(g:, 'snoopy_funcnames', s:default_names())
 
 call s:define_funcs(g:snoopy_funcnames)
 
+" --- commands
+
+" Open the <SID> file
+command! -nargs=1 SnoopyOpen :execute ':edit' fnameescape(s:S.sid2path(<args>))
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
 " __END__

@@ -16,7 +16,7 @@ set cpo&vim
 
 " --- vital Vim.ScriptLocal wrapper
 
-let s:S = vital#of('snoopy').import('Vim.ScriptLocal')
+let s:S = snoopy#vital#ScriptLocal()
 
 function! s:capitalize(str) abort
   return toupper(a:str[0]) . a:str[1:]

@@ -31,7 +31,7 @@ function! s:default_names() abort
 endfunction
 
 function! s:define_funcs(funcnames) abort
-  for key in filter(keys(a:funcnames), "exists('*' . a:funcnames[v:val])")
+  for key in filter(keys(a:funcnames), "!exists('*' . a:funcnames[v:val])")
     let g:{a:funcnames[key]} = s:S[key]
   endfor
 endfunction

@@ -73,7 +73,7 @@ See :h [Vital.Vim.ScriptLocal] for detail
 
 ### `:SnoopyOpen <SID>`
 
-Open the file whose <SID> is matched with given one.
+Open the file whose `<SID>` is matched with given one.
 
 example:
 

@@ -1,5 +1,9 @@
-vim-snoopy :mag_right:
-======================
+vim-snoopy :dog: :mag_right:
+============================
+
+[![](https://img.shields.io/github/release/haya14busa/vim-snoopy.svg?style=flat-square)](https://github.com/haya14busa/vim-snoopy/releases)
+[![](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+[![](https://img.shields.io/badge/doc-%3Ah%20snoopy.txt-red.svg?style=flat-square)](doc/snoopy.txt)
 
 :notes: Introduction
 --------------------

@@ -1,0 +1,142 @@
+*snoopy.txt*	description
+
+Author  : haya14busa <hayabusa1419@gmail.com>
+Version : 0.9.0
+License : MIT license {{{
+
+  Copyright (c) 2015 haya14busa
+
+  Permission is hereby granted, free of charge, to any person obtaining
+  a copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+}}}
+
+==============================================================================
+CONTENTS				*snoopy-contents*
+
+INTRODUCTION		|snoopy-introduction|
+INSTALLATION		|snoopy-installation|
+INTERFACE		|snoopy-interface|
+  FUNCTIONS		  |snoopy-functions|
+  COMMANDS		  |snoopy-commands|
+  UNITE SOURCES		  |snoopy-unite-sources|
+Changelog		|snoopy-changelog|
+
+==============================================================================
+INTRODUCTION				*snoopy-introduction*
+
+*vim-snoopy* ( *snoopy.vim* ) provides a way to snoop |script-local| things.
+You can get <SID>, access script-local functions, and even |script-variable|
+from {path}.
+
+It also provides a command to open the <SID> file (|:SnoopyOpen|),
+`:scriptnames` like functions and |unite.txt| interface for |:scriptnames|.
+
+This plugin is just a wrapper of |vital-vim-script_local.txt| and little
+additional functionality. Please install |vital.txt| [1] to read this snoopy
+documentation and if you are a vim plugin developer and want to use
+|vim-snoopy|, please use vital's |Vital.Vim.ScriptLocal| [2] API.
+
+[1]: https://github.com/vim-jp/vital.vim
+[2]: https://github.com/vim-jp/vital.vim/blob/master/doc/vital-vim-script_local.txt
+
+Let's snoop around the |script-local| things and debug, test them!
+
+==============================================================================
+INSTALLATION				*snoopy-installation*
+
+1. Install |vim-snoopy| and |vital.vim| (optional for documentation)
+
+	NeoBundle 'vim-jp/vital.vim'
+	NeoBundle 'haya14busa/vim-snoopy'
+
+	Plugin 'vim-jp/vital.vim'
+	Plugin 'haya14busa/vim-snoopy'
+
+	Plug 'vim-jp/vital.vim'
+	Plug 'haya14busa/vim-snoopy'
+
+==============================================================================
+INTERFACE				*snoopy-interface*
+------------------------------------------------------------------------------
+FUNCTIONS				*snoopy-functions*
+
+g:snoopy_funcnames				 *g:snoopy_funcnames*
+
+All functions are just a wrapper of |Vital.Vim.ScriptLocal| and their name is
+customizable with |g:snoopy_funcnames|. The keys are methods defined with
+|Vital.Vim.ScriptLocal|. Default:
+>
+	let g:snoopy_funcnames = {
+	\   'scriptnames': 'Scriptnames',
+	\   'sfuncs': 'Sfuncs',
+	\   'sid': 'Sid',
+	\   'sid2path': 'Sid2path',
+	\   'sid2sfuncs': 'Sid2sfuncs',
+	\   'sid2svars': 'Sid2svars',
+	\   'svars': 'Svars'
+	\ }
+<
+Scriptnames()					*snoopy-Scriptnames()*
+	See |Vital.Vim.ScriptLocal.scriptnames()|.
+
+Sfuncs({path})					*snoopy-Scriptnames()*
+	See |Vital.Vim.ScriptLocal.sfuncs()|.
+
+Sid({path})					*snoopy-Sid()*
+	See |Vital.Vim.ScriptLocal.sid()|.
+
+Sid2path(<SID>)					*snoopy-Sid2path()*
+	See |Vital.Vim.ScriptLocal.sid2path()|.
+
+Sid2sfuncs(<SID>)				*snoopy-Sid2sfuncs()*
+	See |Vital.Vim.ScriptLocal.sid2sfuncs()|.
+
+Sid2svars(<SID>)				*snoopy-SID2svars()*
+	See |Vital.Vim.ScriptLocal.sid2svars()|.
+
+Svars({path})					*snoopy-Svars()*
+	See |Vital.Vim.ScriptLocal.svars()|.
+
+------------------------------------------------------------------------------
+COMMANDS				*snoopy-commands*
+
+:SnoopyOpen <SID>				*:SnoopyOpen*
+	Open the file whose <SID> is matched with given one.
+	It's useful to open a error detected file with |:messages| like this.
+
+	Message: >
+	  Error detected while processing function <SNR>140_some_error_sfunc:
+<	Open the file: >
+	  :SnoopyOpen 140
+<
+------------------------------------------------------------------------------
+UNITE SOURCES				*snoopy-unite-sources*
+
+					    *snoopy-unite-sources-scriptnames*
+	|vim-snoopy| includes |unite.txt| sources for |:scriptnames|. >
+	  :Unite scriptnames
+
+==============================================================================
+CHANGELOG				 *snoopy-changelog*
+
+0.9.0	2015-03-08
+  - Init.
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:fdl=0:fdm=marker:

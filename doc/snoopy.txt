@@ -95,7 +95,7 @@ customizable with |g:snoopy_funcnames|. The keys are methods defined with
 Scriptnames()					*snoopy-Scriptnames()*
 	See |Vital.Vim.ScriptLocal.scriptnames()|.
 
-Sfuncs({path})					*snoopy-Scriptnames()*
+Sfuncs({path})					*snoopy-Sfuncs()*
 	See |Vital.Vim.ScriptLocal.sfuncs()|.
 
 Sid({path})					*snoopy-Sid()*
